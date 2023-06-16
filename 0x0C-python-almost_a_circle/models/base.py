@@ -2,6 +2,7 @@
 """This module defines a base class"""
 import json
 import csv
+import turtle
 
 class Base:
     """Represents the class that will serve as
@@ -127,3 +128,38 @@ class Base:
         except FileNotFoundError:
             return []
         return instances
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Utilizes turtle graphics by opening a window & drawing on it"""
+
+        turtle_drawer = turtle.Turtle()
+        turtle_drawer.speed(3)
+        turtle.bgcolor("red")
+
+        turtle_drawer.shape("square")
+        turtle_drawer.color("blue")
+
+        for rectangle in list_rectangles:
+            turtle_drawer.penup()
+            turtle_drawer.goto(rectangle.x, rectangle.y)
+            turtle_drawer.pendown()
+
+            for _ in range(2):
+                turtle_drawer.forward(rectangle.width)
+                turtle_drawer.right(90)
+                turtle_drawer.forward(rectangle.height)
+                turtle_drawer.right(90)
+
+        turtle_drawer.shape("circle")
+        turtle_drawer.color("white")
+        for square in list_squares:
+            turtle_drawer.penup()
+            turtle_drawer.goto(square.x, square.y)
+            turtle_drawer.pendown()
+
+            for _ in range(4):
+                turtle_drawer.forward(square.width)
+                turtle_drawer.right(90)
+        turtle.done()
+
