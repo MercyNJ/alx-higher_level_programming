@@ -11,10 +11,8 @@ if (!filepath || !content) {
   process.exit(1);
 }
 
-fs.writeFile(filepath, content, 'utf-8', (err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('File written successfully.');
+fs.writeFile(filepath, content, 'utf-8', (error) => {
+  if (error) {
+    console.log(error);
   }
 });
