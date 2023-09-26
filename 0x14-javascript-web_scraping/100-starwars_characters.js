@@ -15,8 +15,8 @@ request.get(apiUrl, (error, response, body) => {
   const movie = JSON.parse(body);
   const characters = movie.characters;
 
-  for (let i = 0; i < characters.length; i++) {
-    request(characters[i], (error, response, body) => {
+  for (const character of characters) {
+    request(character, (error, response, body) => {
       if (error) {
         console.log(error);
         return;
