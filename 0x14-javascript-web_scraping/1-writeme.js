@@ -6,11 +6,6 @@ const fs = require('fs');
 const filepath = process.argv[2];
 const content = process.argv[3];
 
-if (!filepath || !content) {
-  console.error('Usage:node writeToFile.js <file_path><content_to_write>');
-  process.exit(1);
-}
-
 fs.writeFile(filepath, content, 'utf-8', (error) => {
   if (error) {
     console.log(error);
